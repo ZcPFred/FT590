@@ -1,6 +1,6 @@
 Important:
 
-The explaination written explaination for Problem 1 is in a separate pdf file called "Weekl 02 Project_ problem1.pdf"
+The written explaination for Problem 1 is in a separate pdf file called "Weekl 02 Project_ problem1.pdf"
 All other answer(written and coding) are in the jupyter notebook "FT590 Weekly02 Project.ipynb"
 
 
