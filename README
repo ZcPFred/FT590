@@ -1,15 +1,15 @@
 Important:
 
 The written explaination for Problem 1 is in a separate pdf file called "Weekl 02 Project_ problem1.pdf".
-All other answer(written and coding) are in the jupyter notebook "FT590 Weekly02 Project.ipynb"
+All other answers(written and coding) are in the jupyter notebook called "FT590 Weekly02 Project.ipynb"
+I also include a pdf version of everything from this jupyter notebook called "Week02 Project.pdf". In case you are more comfortable viewing pdf.
 
 
 
+Required packages:
 
-
-
-
-Below is the list of imported package for this project, pls install each of them to ensure that you can run the code
+Below is the list of imported package for this project, please install all of them to ensure that you can run the code.
+You can copy the package name to google, and there will be instructions of how to install them.
 
 %matplotlib inline
 import numpy as np
