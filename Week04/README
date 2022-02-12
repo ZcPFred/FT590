@@ -1,1 +1,30 @@
+Code for Week04 is in  "project3_code.ipynb".
+"project3_writeup.pdf" contains the written answer for this project
+"project3_PPT.pptx" contains the presentation for this project
+Please run(or just open it) "project3_code.ipynb" to see all implementation of the code
 
+
+Required Packages:
+%matplotlib inline
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import statsmodels.formula.api as sm
+import statsmodels.api as sm2
+import statistics as stat
+import time
+from numpy.random import normal
+import seaborn as sns
+import pylab
+from scipy import optimize as opt
+from scipy import stats as st
+from statsmodels.tsa.arima_process import ArmaProcess
+from statsmodels.graphics.tsaplots import plot_pacf,plot_acf
+from matplotlib.pyplot import figure
+from sklearn.decomposition import PCA
+from bisect import bisect_left
+from tabulate import tabulate
+import timeit
+import scipy 
+import math
+import pypfopt
