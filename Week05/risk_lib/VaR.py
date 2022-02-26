@@ -15,7 +15,7 @@ def VaR_normal(ret, alpha):
 
 def VaR_EwNnormal(ret, alpha, lamb):
     μ = ret.mean()
-    σ = np.sqrt(cov.weighted_cov(lamb, ret)[0])
+    σ = np.sqrt(cov.out_put_EWCM(ret,lamb)[0])
     VaR = -(norm.ppf(alpha) * σ + μ)
     return VaR[0]
 
