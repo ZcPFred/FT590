@@ -5,8 +5,6 @@ import scipy.optimize as opt
 from scipy import stats as st
 from risk_lib import psd
 
-
-
 def get_Norm_simulation(df, sample_size):
     μ = df.mean()
     σ = df.std()
@@ -40,8 +38,7 @@ def copula(ret, s):
         stock_cdf[col] = st.t.cdf(ret[col], df=df, loc=mean, scale=scale)
 
     Nsim=1000
-    Corr_spearman = st.stats.spearmanr(stock_cdf)[0]
-    sim_T= (psd.chol_psd(Corr_spearman) @ pd.DataFrame(st.norm.rvs(size=(n,s)))).T
+    sim_T= (psd.chol_psd(st.stats.spearmanr(stock_cdf)[0]) @ pd.DataFrame(st.norm.rvs(size=(n,s)))).T
 
     result = pd.DataFrame()
     for i in range(n):
