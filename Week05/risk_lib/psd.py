@@ -1,9 +1,7 @@
 import numpy as np
 import pandas as pd
 
-"""
-For this method, we can apply near_psd(A) and Higham_near_psd(A) to find the nearest PSD matrix
-"""
+
 
 
 def chol_psd(sigma):
