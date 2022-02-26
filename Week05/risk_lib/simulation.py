@@ -27,27 +27,25 @@ def get_T_optParam(df):
 
     return data, mean, scale
 
-def copula(ret, nOfDarws):
+def copula(ret, s):
     n=ret.shape[1]
+    params = []
     stock_cdf = pd.DataFrame()
-    t_params = []
+
 
     for col in ret.columns:
         ret[col] -= ret[col].mean()
         df, mean, scale = get_T_optParam(ret[col])
-        t_params.append([df, mean, scale])
+        params.append([df, mean, scale])
         stock_cdf[col] = st.t.cdf(ret[col], df=df, loc=mean, scale=scale)
 
-    numOfDraw=1000
+    Nsim=1000
     Corr_spearman = st.stats.spearmanr(stock_cdf)[0]
+    sim_T= (psd.chol_psd(Corr_spearman) @ pd.DataFrame(st.norm.rvs(size=(n,s)))).T
 
-    cholesky = psd.chol_psd(Corr_spearman)
-    simuNormal = pd.DataFrame(st.norm.rvs(size=(n,nOfDarws)))
-    simulatedT= (cholesky @ simuNormal).T
-
-    Simu_data = pd.DataFrame()
+    result = pd.DataFrame()
     for i in range(n):
-        simu = st.norm.cdf(simulatedT.iloc[:, i])
-        Simu_data[ret.columns[i]] = st.t.ppf(simu, df=t_params[i][0], loc=t_params[i][1], scale=t_params[i][2])
+        sim = st.norm.cdf(sim_T.iloc[:, i])
+        result[ret.columns[i]] = st.t.ppf(sim, df=params[i][0], loc=params[i][1], scale=params[i][2])
 
-    return Simu_data
+    return result
